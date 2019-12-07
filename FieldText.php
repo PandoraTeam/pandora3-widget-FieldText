@@ -32,7 +32,7 @@ class FieldText extends FormField {
 	protected function beforeRender(array $context): array {
 		if ($context['placeholder'] ?? '') {
 			$attribs = $context['attribs'] ?? '';
-			$context['attribs'] = $attribs.' placeholder="'.$context['placeholder'].'"';
+			$context['attribs'] = $attribs.' placeholder="'.htmlentities($context['placeholder']).'"';
 		}
 		if ($context['disabled'] ?? false) {
 			$attribs = $context['attribs'] ?? '';
