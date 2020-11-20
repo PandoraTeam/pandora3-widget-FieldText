@@ -30,6 +30,10 @@ class FieldText extends FormField {
 	 * {@inheritdoc}
 	 */
 	protected function beforeRender(array $context): array {
+		if ($context['id'] ?? '') {
+			$attribs = $context['attribs'] ?? '';
+			$context['attribs'] = $attribs.' id="'.$context['id'].'"';
+		}
 		if ($context['placeholder'] ?? '') {
 			$attribs = $context['attribs'] ?? '';
 			$context['attribs'] = $attribs.' placeholder="'.htmlentities($context['placeholder']).'"';
